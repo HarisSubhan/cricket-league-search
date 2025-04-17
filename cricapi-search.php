@@ -39,7 +39,7 @@ function cricapi_handle_search() {
     check_ajax_referer('cricapi_nonce', 'nonce');
 
     $search = sanitize_text_field($_POST['query']);
-    $apiKey = '23853bc0-52f1-498c-985e-2faa764e23c4';
+    $apiKey = '';
     $apiUrl = "https://api.cricapi.com/v1/series?apikey={$apiKey}&offset=0&search=" . urlencode($search);
 
     $response = wp_remote_get($apiUrl);
@@ -83,7 +83,7 @@ function cricket_live_matches_shortcode() {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       jQuery(document).ready(function ($) {
-        const apiUrl = "https://api.cricapi.com/v1/currentMatches?apikey=23853bc0-52f1-498c-985e-2faa764e23c4&offset=0";
+        const apiUrl = "";
 
         $.getJSON(apiUrl, function (data) {
           if (!data || !data.data || data.data.length === 0) {
